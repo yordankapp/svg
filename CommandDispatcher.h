@@ -7,22 +7,28 @@
 #include "Rectangle.h"
 #include "string"
 #include <vector>
+#include <utility>
 
 class CommandDispatcher{
 private:
     std::string command;
     std::vector<Figure*> figures;
-    int numberOfFigures = 0; 
     std::string userFileName = "";
     void setUserFileName(std::string command);
+    Figure* createFigure(std::vector<std::string> figureData);
     void addFigure(std::vector<std::string>& figureData);
-    void convertLineFromFile(std::string& line);
+    void simplifyLineFromFile(std::string& line);
     void setFigureDataFromLineOrCommand(std::vector<std::string>&figureData, std::string line);
     std::vector<std::string> splitLineBySpace(std::string line);
+    bool lineContainsFigure(std::vector<std::string> line);
+    std::pair<int,int> getParametersForTranslation(std::vector<std::string> line); 
+    int findFigurePositionInAllFigures(std::vector<std::string> figureData);
+    void translateOneFigure(std::vector<std::string> figureData, std::pair<int,int> parameters);
+    void translateAllFigures(std::pair<int,int> parameters);
 
 public:
     CommandDispatcher();
-    void takeCommand(std::string command);
+    void execute(std::string command);
     void print() const;
     void open(std::string command);
     void create(std::string command);
