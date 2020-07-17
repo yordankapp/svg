@@ -16,7 +16,10 @@ public:
     void print() const ;
     void translate(int _x, int _y);
     void within(std::vector<std::string> figureData);
-    void save(std::ostream& os );
+    void save(std::ostream& os);
+    bool operator==(const Line& otherLine) const;
+    Line& operator=(const Line& otherLine);
+};
 };
 
 #endif //SVG_LINE_H

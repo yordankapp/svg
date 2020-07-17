@@ -16,6 +16,8 @@ public:
     void translate(int _x, int _y);
     void within(std::vector<std::string> figureData);
     void save(std::ostream& os);
+    bool operator==(const Rectangle& otherRectangle) const;
+    Rectangle& operator=(const Rectangle& otherRectangle);
 };
 
 #endif //SVG_RECTANGLE_H

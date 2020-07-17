@@ -54,3 +54,22 @@ void Line::save(std::ostream& os ){
                  "\" fill=\"" + this->color + "\" />\n";
   os<<line;
 }
+
+bool Line::operator==(const Line& otherLine) const{
+  return (Figure::operator==(otherLine)) && 
+         (this->x2 == otherLine.x2) && 
+         (this->y2 == otherLine.y2) &&
+         (this->width == otherLine.width);
+}
+
+Line& Line::operator=(const Line& otherLine){
+  if(this != &otherLine){
+    this->x = otherLine.x;
+    this->y = otherLine.y;
+    this->x2 = otherLine.x2;
+    this->y2 = otherLine.y2;
+    this->width = otherLine.width;
+    this->color = otherLine.color;
+  }
+  return *this;
+}

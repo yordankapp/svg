@@ -15,6 +15,8 @@ public:
     virtual void translate(int _x, int _y);
     virtual void within(std::vector<std::string> figureData);
     virtual void save(std::ostream& os);
+    virtual bool operator==(const Figure& otherFigure) const;
+    virtual Figure& operator=(const Figure& otherFigure);
 };
 
 #endif //SVG_FIGURE_H

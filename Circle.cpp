@@ -43,9 +43,21 @@ void Circle::within( std::vector<std::string> figureData){
     }
 }
 void Circle::save(std::ostream& os){
-    std::string circle = "  <circle cx=\"" + std::to_string(this->x) + "\" cy=\"" + std::to_string(this->y)
-                          +  "\" r=\"" + std::to_string(this->radius) + "\" fill=\"" + this->color + "\" />\n";
-
+    std::string circle = "  <circle cx=\"" + std::to_string(this->x) + "\" cy=\"" + std::to_string(this->y) + 
+                         "\" r=\"" + std::to_string(this->radius) + "\" fill=\"" + this->color + "\" />\n";
     os<<circle;
 }
 
+bool Circle::operator==(const Circle& otherCircle) const{
+  return (Figure::operator==(otherCircle)) && (this->radius == otherCircle.radius);
+}
+
+Circle& Circle::operator=(const Circle& otherCircle){
+  if(this != &otherCircle){
+    this->x = otherCircle.x;
+    this->y = otherCircle.y;
+    this->radius = otherCircle.radius;
+    this->color = otherCircle.color; 
+  }
+  return *this;
+}

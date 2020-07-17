@@ -27,3 +27,17 @@ void Figure::save(std::ostream& os){
 
 }
 
+bool Figure::operator==(const Figure& otherFigure) const{
+  return (this->x == otherFigure.x) && 
+         (this->y == otherFigure.y) && 
+         (this->color == otherFigure.color); 
+}
+
+Figure& Figure::operator=(const Figure& otherFigure){
+  if(this != &otherFigure){
+    this->x = otherFigure.x;
+    this->y = otherFigure.y;
+    this->color = otherFigure.color;
+  }
+  return *this;
+}

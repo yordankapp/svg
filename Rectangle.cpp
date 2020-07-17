@@ -53,3 +53,20 @@ void Rectangle::save(std::ostream& os){
 
     os<<rectangle;
 }
+
+bool Rectangle::operator==(const Rectangle& otherRectangle) const{
+  return (Figure::operator==(otherRectangle)) && 
+           (this->width == otherRectangle.width) &&
+           (this->height == otherRectangle.height);
+}
+
+Rectangle& Rectangle::operator=(const Rectangle& otherRectangle){
+  if(this != &otherRectangle){
+    this->x = otherRectangle.x; 
+    this->y = otherRectangle.y;
+    this->width = otherRectangle.width;
+    this->height = otherRectangle.height;
+    this->color = otherRectangle.color;
+  }
+  return *this;
+}
