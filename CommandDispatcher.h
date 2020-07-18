@@ -1,10 +1,10 @@
 
 #ifndef SVG_COMMANDDISPATCHER_H
 #define SVG_COMMANDDISPATCHER_H
-#include "Figure.h"
-#include "Line.h"
-#include "Circle.h"
-#include "Rectangle.h"
+#include "Figures/Figure.h"
+#include "Figures/Line.h"
+#include "Figures/Circle.h"
+#include "Figures/Rectangle.h"
 #include "string"
 #include <vector>
 #include <utility>
